@@ -15,7 +15,7 @@ class Api::V1::WizardsController < ApplicationController
     if wizard.save 
       render json: wizard, status: 200
     else 
-      ender json: {error: "Error. Could not create wizard", status: 500}, status: 500
+      ender json: {error: "Error! Could not create wizard.", status: 500}, status: 500
     end 
     render json: wizard 
   end 
