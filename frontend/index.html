@@ -12,15 +12,21 @@
       <h1>World of Wizards</h1>
       <div class="new-wizard-container">
         <form id="new-wizard-form">
-          <input type="text"/><br>
+          <input type="text" id="new-wizard-body"/><br>
           <br>
-          <input type="submit"/>
+          <input type="submit" value="Create Wizard"/>
         </form>
       </div>
-      <div id="wizards-container">
+      <div id="wizards-content">
+        <div id="wizards-container">
 
+        </div>
+        <div id ="wizard">
+
+        </div>
       </div>
     </div>
+    <script type="text/javascript" src="src/components/wizard.js"></script>
     <script src="src/components/wizards.js"></script>
     <script src="src/components/app.js"></script>
     <script src="src/adapters/WizardsAdapter.js"></script>

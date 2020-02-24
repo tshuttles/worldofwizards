@@ -7,8 +7,18 @@ class Wizards {
   }
 
   fetchAndLoadWizards(){
-    this.adapter.getWizards().then(wizards => {
-      console.log(wizards)
+    this.adapter
+    .getWizards()
+    .then(wizards => {
+      wizards.forEach(wizard => this.wizards.push(wizard))
     })
+    .then(() => {
+      this.render()
+    })
+  }
+
+  render(){
+    const notesContainer = document.getElementById('wizards-container')
+    notesContainer.innerHTML = "My Wizards Here"
   }
 }
