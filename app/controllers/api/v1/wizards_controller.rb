@@ -1,8 +1,8 @@
 class Api::V1::WizardsController < ApplicationController
 
   def index 
-    wizards = Wizard.all 
-    render json: wizards, status: 200
+    @wizards = Wizard.all 
+    render json: @wizards, status: 200
   end 
 
   def show 

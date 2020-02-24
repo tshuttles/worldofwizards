@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Wizard.create([
+  {name: 'Harry Potter'},
+  {name: 'Hermione Granger'},
+  {name: 'Ron Weasley'},
+  {name: 'Draco Malfoy'},
+  {name: 'Albus Dumbledore'},
+  {name: 'Tom Riddle aka Voldemort'}
+])
