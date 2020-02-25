@@ -6,4 +6,8 @@ class WizardsAdapter {
   getWizards() {
     return fetch(this.baseURL).then(res => res.json())
   }
+
+  createNewWizard(name) {
+    return fetch()
+  }
 };

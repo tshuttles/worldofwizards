@@ -9,7 +9,6 @@ class Api::V1::SpellsController < ApplicationController
   def destroy
     spell = Spell.find(params[:id])
     spell.delete
-    render json: {spellID: spell.id}
   end
 
 end

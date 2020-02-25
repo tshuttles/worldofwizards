@@ -4,13 +4,14 @@ class Wizards {
     this.adapter = new WizardsAdapter()
     // this.bindEventListeners()
     this.fetchAndLoadWizards()
+    this.initListeners()
   }
 
   fetchAndLoadWizards(){
     this.adapter
     .getWizards()
     .then(wizards => {
-      wizards.forEach(wizard => this.wizards.push(wizard))
+      wizards.forEach(wizard => this.wizards.push(new Wizard(wizard)))
     })
     .then(() => {
       this.render()
@@ -18,7 +19,22 @@ class Wizards {
   }
 
   render(){
-    const notesContainer = document.getElementById('wizards-container')
-    notesContainer.innerHTML = "My Wizards Here"
+    const wizardsContainer = document.getElementById('wizards-container')
+    wizardsContainer.innerHTML = this.wizards.map(wizard => wizard.renderWizard()).join('')
   }
-}
+
+  createWizard() {
+    console.log("creating wizard")
+    const wizardName = this.newWizardName.value 
+    this.adapter.createNewWizard(wizardName)
+  }
+
+  initListeners() {
+    this.newWizardForm = document.querySelector("#new-wizard-form")
+    this.newWizardForm.addEventListener("submit", (e) => {
+      e.preventDefault()
+      this.createWizard()
+    })
+    this.newWizardName = document.querySelector('#new-wizard-name')
+  }
+};
