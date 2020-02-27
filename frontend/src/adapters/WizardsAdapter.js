@@ -8,13 +8,14 @@ class WizardsAdapter {
   };
 
   createNewWizard(name) {
+    console.log(name)
     return fetch(this.baseURL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json"
       },
-      body: JSON.stringify({name: name})
+      body: JSON.stringify({name})
     })
     .then(res => {
       console.log(res.status)
