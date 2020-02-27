@@ -7,7 +7,7 @@ class Wizards {
     this.initListeners()
   }
 
-  fetchAndLoadWizards(){
+  fetchAndLoadWizards() {
     this.adapter
     .getWizards()
     .then(wizards => {
@@ -18,8 +18,8 @@ class Wizards {
     })
   }
 
-  render(){
-    const wizardsContainer = document.getElementById('wizards-container')
+  render() {
+    const wizardsContainer = document.querySelector('#wizards-container')
     wizardsContainer.innerHTML = this.wizards.map(wizard => wizard.renderWizard()).join('')
   }
 
@@ -36,5 +36,14 @@ class Wizards {
       this.createWizard()
     })
     this.newWizardName = document.querySelector('#new-wizard-name')
+    this.spellButton = document.querySelectorAll(".spell-button")
+    this.spellButton.addEventListener("click", (e) => {
+      e.preventDefault()
+      this.addSpell()
+    })
+  }
+
+  addSpell() {
+    
   }
 };

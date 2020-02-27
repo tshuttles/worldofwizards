@@ -6,7 +6,7 @@ class Api::V1::WizardsController < ApplicationController
   end 
 
   def create 
-    wizard = Wizard.build(wizard_params)
+    wizard = Wizard.new(wizard_params)
     if wizard.save 
       render json: wizard, status: 200
     else 
