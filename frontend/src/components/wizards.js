@@ -18,38 +18,44 @@ class Wizards {
   };
 
   render() {
+    this.wizardsContainer.innerHTML = ""
+    console.log(this.wizards)
     this.wizards.forEach(wizard => {
       const wizardCard = document.createElement('div')
-      
+      wizardCard.className = "wizard-card"
+      wizardCard.id = `${wizard.id}`
+      wizardCard.innerHTML = wizard.renderWizard()
+
+      const addSpellButton = document.createElement('button')
+      addSpellButton.id = `${wizard.id}`
+      addSpellButton.innerHTML = "Add Spell"
+      wizardCard.appendChild(addSpellButton)
+      addSpellButton.addEventListener('click', (e) => {
+        console.log(e.target.nextElementSibling.childElementCount)
+        if (e.target.nextElementSibling.childElementCount < 5){
+          fetch(this.baseURL, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                "Accept": "application/json"
+                },
+            body: JSON.stringify({name})
+          })
+          .then(resp => resp.json())
+          .then(name => addSpellButton(name))
+        }
+      })
+      this.wizardsContainer.appendChild(wizardCard)
     })
   };
 
   createWizard() {
-    console.log("creating wizard")
-    const wizardName = this.newWizardName.value 
-    console.dir(this.newWizardName)
+    const wizardName = this.newWizardName.value
     this.adapter.createNewWizard(wizardName).then(wizJSON => {
       this.wizards.push(new Wizard(wizard))
       this.render()
     })
   };
-
-  addSpell(e) {
-    console.log(e.target)
-    if (e.target < 5){
-      fetch(this.baseURL, {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json',
-            "Accept": "application/json"
-            },
-        body: JSON.stringify({name})
-      })
-      .then(resp => resp.json())
-      .then(name => addSpell(name))
-    }
-  }
-  
 
   initListeners() {
     this.wizardsContainer = document.querySelector('#wizards-container')
@@ -59,10 +65,6 @@ class Wizards {
       e.preventDefault()
       this.createWizard()
     })
-    this.wizardsContainer.addEventListener("click", (e) => {
-      this.addSpell(e)
-    })
-
   };
 
 };
