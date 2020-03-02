@@ -2,7 +2,7 @@ class Api::V1::WizardsController < ApplicationController
 
   def index 
     wizards = Wizard.all 
-    render json: wizards, status: 200
+    render json: WizardSerializer.new(wizards).to_serialized_json
   end 
 
   def create 

@@ -18,7 +18,10 @@ class Wizards {
   };
 
   render() {
-    this.wizardsContainer.innerHTML = this.wizards.map(wizard => wizard.renderWizard()).join('')
+    this.wizards.forEach(wizard => {
+      const wizardCard = document.createElement('div')
+      
+    })
   };
 
   createWizard() {
@@ -32,7 +35,7 @@ class Wizards {
   };
 
   addSpell(e) {
-    console.log(e.target.dataset.id)
+    console.log(e.target)
     if (e.target < 5){
       fetch(this.baseURL, {
         method: "POST",
