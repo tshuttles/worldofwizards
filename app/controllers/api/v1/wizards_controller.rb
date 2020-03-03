@@ -8,9 +8,9 @@ class Api::V1::WizardsController < ApplicationController
   def create 
     wizard = Wizard.new(wizard_params)
     if wizard.save 
-      render json: wizard, status: 200
+      render json: wizard
     else 
-      render json: {error: "Error! Could not create wizard.", status: 500}, status: 500
+      render json: {error: "Error! Could not create wizard."}
     end 
   end 
 

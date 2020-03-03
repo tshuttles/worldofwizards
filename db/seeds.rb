@@ -15,7 +15,9 @@ Wizard.create([
   {name: 'Ron Weasley'},
   {name: 'Draco Malfoy'},
   {name: 'Albus Dumbledore'},
-  {name: 'Tom Riddle aka Voldemort'}
+  {name: 'Tom Riddle aka Voldemort'},
+  {name: 'Severus Snape'},
+  {name: 'Sirius Black'}
 ])
 
 wizards = []
