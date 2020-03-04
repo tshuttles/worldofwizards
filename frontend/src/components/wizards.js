@@ -31,7 +31,7 @@ class Wizards {
       addSpellButton.innerHTML = "Add Spell"
       wizardCard.appendChild(addSpellButton)
       addSpellButton.addEventListener('click', (e) => {
-        console.log(e.target.nextElementSibling.childElementCount)
+        console.log(e.target)
         if (e.target.nextElementSibling.childElementCount < 5){
           fetch(this.baseURL, {
             method: "POST",
@@ -50,21 +50,30 @@ class Wizards {
   };
 
   createWizard() {
-    const wizardName = this.newWizardName.value
-    this.adapter.createNewWizard(wizardName).then(wizJSON => {
-      this.wizards.push(new Wizard(wizard))
-      this.render()
+    const name = this.newWizardName.value
+    this.adapter.createNewWizard(name)
+    .then(wizard => {
+      const newWizard = new Wizard(wizard)
+      this.wizardsContainer.innerHTML += newWizard.renderWizard()
     })
+    this.newWizardName.value = ""
+
+    // const newWizard = this.newWizardName.value
+    // this.adapter.createNewWizard(wizardName).then(wizJSON => {
+      // this.wizards.push(new Wizard(wizard))
+      // this.render()
+    // })
   };
 
   initListeners() {
     this.wizardsContainer = document.querySelector('#wizards-container')
     this.newWizardName = document.querySelector('#new-wizard-name')
     this.newWizardForm = document.querySelector("#new-wizard-form")
-    this.newWizardForm.addEventListener("submit", (e) => {
-      e.preventDefault()
-      this.createWizard()
-    })
+    this.newWizardForm.addEventListener("submit", this.createWizard.bind(this))
+    // this.newWizardForm.addEventListener("submit", (e) => {
+    //   e.preventDefault()
+      // this.createWizard()
+    // })
   };
 
 };

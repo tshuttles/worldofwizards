@@ -6,7 +6,7 @@ class Wizard {
 
   renderWizard() {
     // return `<li><span>${this.name}</span><button data-id="${this.id}" class="spell-button">Add Spell</button></li>`
-    return `<p>${this.name}</p>`
+    return `<h1>${this.name}</h1><br><p></p>`
   };
 
 }

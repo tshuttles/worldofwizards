@@ -8,24 +8,15 @@ class WizardsAdapter {
   };
 
   createNewWizard(name) {
-    console.log(name)
     return fetch(this.baseURL, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({name})
     })
-    .then(res => {
-      console.log(res.status)
-      return res
-    })
+    .then(res => {return res})
     .then(res => res.json())
-    .catch((message) => {
-      alert("Error. Could not create wizard.")
-      console.error(message)
-    })
   };
 
 };
