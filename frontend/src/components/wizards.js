@@ -7,14 +7,22 @@ class Wizards {
   };
 
   fetchAndLoadWizards() {
-    this.adapter
-    .getWizards()
+    this.adapter.getWizards()
     .then(wizards => {
       wizards.forEach(wizard => this.wizards.push(new Wizard(wizard)))
     })
-    .then(() => {
+    .then( () => {
       this.render()
     })
+  };
+
+  initListeners() {
+    this.wizardsContainer = document.querySelector('#wizards-container')
+    this.spellsContainer = document.querySelector('#spells-container')
+    this.newWizardName = document.querySelector('#new-wizard-name')
+    this.newWizardForm = document.querySelector("#new-wizard-form")
+    this.newWizardForm.addEventListener("submit", this.createWizard.bind(this))
+    this.wizardsContainer.addEventListener('click', this.handleAddSpell.bind(this))
   };
 
   render() {
@@ -24,7 +32,7 @@ class Wizards {
       const card = wizard.makeCard()
       this.wizardsContainer.appendChild(card)
     })
-  }
+  };
 
   createWizard(e) {
     e.preventDefault()
@@ -39,24 +47,12 @@ class Wizards {
 
   handleAddSpell(e) {
     console.log(e.target.id)
+    console.log(e.target.nextElementSibling)
     this.adapter.addSpell(e.target.id)
     .then(spellJSON => {
-      console.log(spellJSON)
+      console.log(spellJSON.name)
+      this.wizardsContainer.appendChild(spellJSON.name)
     })
-
-  // addSpellButton.addEventListener('click', (e) => {
-  //   console.log(e.target.nextElementSibling)
-  //   if (e.target.nextElementSibling < 5){
-  //   }
-  }
-
-  initListeners() {
-    this.wizardsContainer = document.querySelector('#wizards-container')
-    this.spellsContainer = document.querySelector('#spells-container')
-    this.newWizardName = document.querySelector('#new-wizard-name')
-    this.newWizardForm = document.querySelector("#new-wizard-form")
-    this.newWizardForm.addEventListener("submit", this.createWizard.bind(this))
-    this.wizardsContainer.addEventListener('click', this.handleAddSpell.bind(this))
   };
 
 };

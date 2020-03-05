@@ -22,6 +22,6 @@ class Wizard {
 
     return wizardCard
     // this.wizardsContainer.appendChild(wizardCard)
-  }
+  };
 
-}
+};
