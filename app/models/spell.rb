@@ -1,3 +1,3 @@
 class Spell < ApplicationRecord
-  belongs_to :wizards
+  belongs_to :wizard
 end

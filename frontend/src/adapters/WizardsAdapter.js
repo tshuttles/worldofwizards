@@ -1,6 +1,7 @@
 class WizardsAdapter {
   constructor() {
     this.baseURL = "http://localhost:3000/api/v1/wizards"
+    this.spellURL = "http://localhost:3000/api/v1/spells"
   };
 
   getWizards() {
@@ -20,16 +21,18 @@ class WizardsAdapter {
   };
 
   addSpell(wizard_id) {
-    return fetch(this.baseURL, {
+    console.log(wizard_id)
+    return fetch(this.spellURL, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
         // "Accept": "application/json"
-        },
+      },
       body: JSON.stringify({wizard_id})
         })
       .then(resp => resp.json())
       // .then(name => addSpellButton(name))
+      // .then(res => console.log(res))
   }
 
 };

@@ -2,7 +2,7 @@ class Api::V1::SpellsController < ApplicationController
 
   def create
     name = Faker::Movies::HarryPotter.spell 
-    spell = Spell.create(name: name, wizard_id: params[:wizard_id])
+    spell = Spell.create(name: name, wizard_id: params[:wizard_id].to_i)
     render json: spell
   end 
 

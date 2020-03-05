@@ -38,7 +38,11 @@ class Wizards {
   };
 
   handleAddSpell(e) {
-    console.log(e.target)
+    console.log(e.target.id)
+    this.adapter.addSpell(e.target.id)
+    .then(spellJSON => {
+      console.log(spellJSON)
+    })
 
   // addSpellButton.addEventListener('click', (e) => {
   //   console.log(e.target.nextElementSibling)
@@ -52,7 +56,6 @@ class Wizards {
     this.newWizardName = document.querySelector('#new-wizard-name')
     this.newWizardForm = document.querySelector("#new-wizard-form")
     this.newWizardForm.addEventListener("submit", this.createWizard.bind(this))
-
     this.wizardsContainer.addEventListener('click', this.handleAddSpell.bind(this))
   };
 
