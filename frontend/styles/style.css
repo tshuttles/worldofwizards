@@ -1,3 +1,18 @@
+body {
+  background-color: rgb(89, 94, 94);
+  color: white;
+  text-align: center;
+  font-family: fantasy;
+}
+
+button {
+  background-color: white;
+  color: black;
+  min-height: 50px;
+  min-width: 50px;
+  font-family: fantasy;
+}
+
 div.wizard-card {
   color: black;
   font-size: 22px;
@@ -12,17 +27,8 @@ div.wizard-card {
   border-radius: 5px;
 }
 
-button {
-  background-color: white;
+div.spells-container {
   color: black;
-  min-height: 50px;
-  min-width: 50px;
-  font-family: fantasy;
-}
-
-body {
-  background-color: rgb(51, 54, 54);
-  color: white;
-  text-align: center;
-  font-family: fantasy;
+  font-size: 18px;
+  font-style: italic;
 }
