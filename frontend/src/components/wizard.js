@@ -28,7 +28,6 @@ class Wizard {
     wizardCard.appendChild(addSpellButton)
 
     return wizardCard
-    // this.wizardsContainer.appendChild(wizardCard)
   };
 
 };

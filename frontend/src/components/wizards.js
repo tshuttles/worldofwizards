@@ -27,7 +27,6 @@ class Wizards {
 
   render() {
     this.wizardsContainer.innerHTML = ""
-    // console.log(this.wizards)
     this.wizards.forEach(wizard => {
       const card = wizard.makeCard()
       this.wizardsContainer.appendChild(card)
@@ -46,12 +45,9 @@ class Wizards {
   };
 
   handleAddSpell(e) {
-    // console.log(e.target.parentNode.children[1].children.length)
     if (e.target.parentNode.children[1].children.length < 5) {
       this.adapter.addSpell(e.target.id)
       .then(spellJSON => {
-        // console.log(spellJSON.name)
-        // console.log(e.target.parentNode.children[1])
         e.target.parentNode.children[1].innerHTML += `<p>${spellJSON.name}</p>` 
       })
     }

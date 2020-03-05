@@ -1,8 +1,22 @@
 body {
-  background-color: rgb(89, 94, 94);
   color: white;
   text-align: center;
+  font-size: 26px;
   font-family: fantasy;
+  background-color:black;
+  background-image:
+    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+    radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+    radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+}
+
+input {
+  font-size: 18px;
+  font-family: fantasy;
+  color: black;
 }
 
 button {
@@ -15,7 +29,8 @@ button {
 
 div.wizard-card {
   color: black;
-  font-size: 22px;
+  font-size: 24px;
+  font-style: bold;
   text-align: center;
   background-color: #ebd61c;
   min-height: 175px;
@@ -32,3 +47,4 @@ div.spells-container {
   font-size: 18px;
   font-style: italic;
 }
+
