@@ -20,17 +20,17 @@ Wizard.create([
   {name: 'Sirius Black'}
 ])
 
-wizards = []
+# wizards = []
 
-wizard_name.each do |name|
-  wizards << Wizard.create(name: name)
-end
+# wizard_name.each do |name|
+#   wizards << Wizard.create(name: name)
+# end
 
-wizards.each do |wizard|
-  wizSpells = (SecureRandom.random_number(5) + 1).floor
+# wizards.each do |wizard|
+#   wizSpells = (SecureRandom.random_number(5) + 1).floor
 
-  (1..wizSpells).each do |spell|
-    name = Faker::Movies::HarryPotter.spell
-    Spell.create(name: name, wizard_id: wizard.id)
-  end
-end
+#   (1..wizSpells).each do |spell|
+#     name = Faker::Movies::HarryPotter.spell
+#     Spell.create(name: name, wizard_id: wizard.id)
+#   end
+# end

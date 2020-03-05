@@ -15,7 +15,7 @@ div.wizard-card {
 button {
   background-color: white;
   color: black;
-  min-height: 25px;
+  min-height: 50px;
   min-width: 50px;
   font-family: fantasy;
 }
@@ -24,5 +24,5 @@ body {
   background-color: rgb(51, 54, 54);
   color: white;
   text-align: center;
-  font-family: Brushstroke, fantasy;
+  font-family: fantasy;
 }

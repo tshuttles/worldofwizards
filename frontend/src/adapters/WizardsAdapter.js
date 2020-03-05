@@ -19,4 +19,17 @@ class WizardsAdapter {
     .then(res => res.json())
   };
 
+  addSpell(wizard_id) {
+    return fetch(this.baseURL, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+        // "Accept": "application/json"
+        },
+      body: JSON.stringify({wizard_id})
+        })
+      .then(resp => resp.json())
+      // .then(name => addSpellButton(name))
+  }
+
 };
