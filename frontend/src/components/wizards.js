@@ -22,7 +22,7 @@ class Wizards {
     this.newWizardName = document.querySelector('#new-wizard-name')
     this.newWizardForm = document.querySelector("#new-wizard-form")
     this.newWizardForm.addEventListener("submit", this.createWizard.bind(this))
-    this.wizardsContainer.addEventListener('click', this.handleAddSpell.bind(this))
+    // this.wizardsContainer.addEventListener('click', this.handleAddSpell.bind(this))
   };
 
   render() {
@@ -38,19 +38,21 @@ class Wizards {
     const name = this.newWizardName.value
     this.adapter.createNewWizard(name)
     .then(wizard => {
+      wizard.spells = []
       const newWizard = new Wizard(wizard)
-      this.wizardsContainer.innerHTML += newWizard.renderWizard()
+      console.log(newWizard.makeCard())
+      this.wizardsContainer.appendChild(newWizard.makeCard())
     })
     this.newWizardName.value = ""
   };
 
-  handleAddSpell(e) {
-    if (e.target.parentNode.children[1].children.length < 5) {
-      this.adapter.addSpell(e.target.id)
-      .then(spellJSON => {
-        e.target.parentNode.children[1].innerHTML += `<p>${spellJSON.name}</p>` 
-      })
-    }
-  };
+  // handleAddSpell(e) {
+  //   if (e.target.parentNode.children[1].children.length < 5) {
+  //     this.adapter.addSpell(e.target.id)
+  //     .then(spellJSON => {
+  //       e.target.parentNode.children[1].innerHTML += `<p>${spellJSON.name}</p>` 
+  //     })
+  //   }
+  // };
 
 };

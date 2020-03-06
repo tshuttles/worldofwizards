@@ -16,7 +16,6 @@ class WizardsAdapter {
       },
       body: JSON.stringify({name})
     })
-    .then(res => {return res})
     .then(res => res.json())
   };
 
@@ -28,7 +27,7 @@ class WizardsAdapter {
       },
       body: JSON.stringify({wizard_id})
     })
-    .then(resp => resp.json())
+    .then(res => res.json())
   };
 
 };
