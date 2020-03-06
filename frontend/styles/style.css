@@ -17,6 +17,7 @@ input {
   font-size: 18px;
   font-family: fantasy;
   color: black;
+  text-align: center;
 }
 
 button {
